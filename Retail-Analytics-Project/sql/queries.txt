@@ -1,0 +1,24 @@
+-- Total Sales
+SELECT SUM(Sales) FROM sales_data;
+
+-- Total Profit
+SELECT SUM(Profit) FROM sales_data;
+
+-- Top 5 Products
+SELECT `Product Name`, SUM(Sales) AS Total_Sales
+FROM sales_data
+GROUP BY `Product Name`
+ORDER BY Total_Sales DESC
+LIMIT 5;
+
+-- Region Wise Sales
+SELECT Region, SUM(Sales)
+FROM sales_data
+GROUP BY Region;
+
+-- Top Customers
+SELECT `Customer Name`, SUM(Sales)
+FROM sales_data
+GROUP BY `Customer Name`
+ORDER BY SUM(Sales) DESC
+LIMIT 5;
